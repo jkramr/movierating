@@ -6,7 +6,7 @@ RESTful microservice, powered by Spring Boot, one-button bootstrap, can benefit 
 
 - Clone this repository
 
-- `./gradlew bootRun local`
+- `./gradlew bootRun`
 
 ##Available options:
 
@@ -27,3 +27,7 @@ OR
 b) Install Docker with Compose and run:
 
 `docker-compose up -d`
+
+Start service with `-Dredis=true`:
+
+`./gradlew bootRun -Dredis=true`
