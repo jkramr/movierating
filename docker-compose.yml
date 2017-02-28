@@ -1,4 +1,4 @@
 redis:
-  image: redis
+  image: rank
   ports:
        - "6379:6379"

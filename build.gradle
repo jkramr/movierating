@@ -40,7 +40,7 @@ dependencies {
 
     // you'll need Redis running
 	compile('org.springframework.boot:spring-boot-starter-data-redis')
-
+    compile('org.springframework.boot:spring-boot-starter-hateoas')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('com.h2database:h2')

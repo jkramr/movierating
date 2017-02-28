@@ -13,12 +13,20 @@ import java.util.Collection;
  *
  * Search API reference:
  * http://localhost:8080/movies/search
+ *
+ * Spring boot allows updating/inserting entities with POST requests:
+
+ $ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies
+
+ *
  */
 @RepositoryRestResource
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     Collection<Movie> findByMovieTitle(@Param("title") String title);
+
     Collection<Movie> findByRating(@Param("rating") Integer rating);
+
     Collection<Movie> findByYear(@Param("year") Integer year);
 
     // easy switch between DBs:

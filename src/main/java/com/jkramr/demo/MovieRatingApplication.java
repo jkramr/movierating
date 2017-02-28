@@ -1,11 +1,8 @@
 package com.jkramr.demo;
 
-import com.jkramr.demo.repository.RatingRecordRepository;
-import com.jkramr.demo.repository.redis.RatingRedisOperations;
-import com.jkramr.demo.repository.MovieRepository;
-import com.jkramr.demo.service.MovieRatingService;
-import com.jkramr.demo.service.provider.RedisMovieRatingService;
-import com.jkramr.demo.service.provider.PlainJavaMovieRatingService;
+import com.jkramr.demo.repository.InMemoryJavaRankRepository;
+import com.jkramr.demo.repository.RankRepository;
+import com.jkramr.demo.repository.RedisRankRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,7 +19,7 @@ public class MovieRatingApplication {
      * Enables Redis-driven rating calculation
      * 12-step reconfigurable property (code default -> application.properties -> environment variable etc.)
      */
-    @Value("${redis:false}")
+    @Value("${rank:false}")
     Boolean redis;
 
     @Bean
@@ -38,19 +35,10 @@ public class MovieRatingApplication {
     }
 
     @Bean
-    MovieRatingService movieRatingService(
-            MovieRepository movieRepository,
-            RatingRedisOperations ratingRedisOperations,
-            RatingRecordRepository ratingRecordRepository
-    ) {
+    RankRepository rankRepository(RedisTemplate<String, Long> redisTemplate) {
         return redis
-                ? new RedisMovieRatingService(movieRepository, ratingRecordRepository, ratingRedisOperations)
-                : new PlainJavaMovieRatingService(movieRepository, ratingRecordRepository);
-    }
-
-    @Bean
-    RatingRedisOperations movieRatingRedisRepository(RedisTemplate<String, Long> stringLongredisTemplate) {
-        return new RatingRedisOperations(stringLongredisTemplate.boundZSetOps("movie_rating"));
+                ? new RedisRankRepository(redisTemplate.boundZSetOps("movie_rating"))
+                : new InMemoryJavaRankRepository();
     }
 
     public static void main(String[] args) {
