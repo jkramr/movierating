@@ -35,13 +35,13 @@ Start service with `-Dredis=true`:
 
 Thanks to Spring HATEOAS, the service provides easy access to the state:
 
-**NB** JSONView plugin for chrome is highly recommended: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc/related?hl=en
+**NB!** JSONView plugin for chrome is highly recommended: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc/related?hl=en
 
-Movie API will be available at `localhost:8080/movies{?page,size,sort}`
+Movie API will be available at `http://localhost:8080/movies` + `{?page,size,sort}`
 
-Movie search API reference will be available at `localhost:8080/movies/search`
+Movie search API reference will be available at `http://localhost:8080/movies/search`
 
-Current rankings available at `localhost:8080/movies/rankings`
+Current rankings available at `http://localhost:8080/movies/rankings`
 
 ##Bonus: 
 
