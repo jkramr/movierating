@@ -38,7 +38,7 @@ public class RedisRankRepository implements RankRepository {
 
     @Override
     public Collection<Long> findFirst(long limit) {
-        return ratingOperations.range(0, limit);
+        return ratingOperations.reverseRange(0, limit);
     }
 
     @Override

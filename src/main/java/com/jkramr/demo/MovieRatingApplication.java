@@ -19,7 +19,7 @@ public class MovieRatingApplication {
      * Enables Redis-driven rating calculation
      * 12-step reconfigurable property (code default -> application.properties -> environment variable etc.)
      */
-    @Value("${rank:false}")
+    @Value("${redis:false}")
     Boolean redis;
 
     @Bean

@@ -22,7 +22,7 @@ public class InMemoryJavaRankRepository implements RankRepository {
     private TreeMap<Integer, Set<Long>> ratings;
 
     public InMemoryJavaRankRepository() {
-        this.ratings = new TreeMap<>();
+        this.ratings = new TreeMap<>(Comparator.reverseOrder());
     }
 
     @Override
