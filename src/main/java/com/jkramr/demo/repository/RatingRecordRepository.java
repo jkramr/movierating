@@ -19,7 +19,9 @@ public interface RatingRecordRepository extends JpaRepository<Rating, Long> {
 
     Collection<Rating> findByRank(@Param("rank") Long rank);
 
-    Rating findByMovieId(@Param("movieId") Long movieId);
+    Collection<Rating> findByMovieId(@Param("movieId") Long movieId);
 
-    Collection<Rating> findByMovieTitle(@Param("title") String rank);
+    Collection<Rating> findByRating(@Param("rating") Integer rating);
+
+    Collection<Rating> findByMovieTitle(@Param("title") String movieTitle);
 }

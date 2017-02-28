@@ -18,6 +18,8 @@ import java.util.Collection;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     Collection<Movie> findByMovieTitle(@Param("title") String title);
+    Collection<Movie> findByRating(@Param("rating") Integer rating);
+    Collection<Movie> findByYear(@Param("year") Integer year);
 
     // easy switch between DBs:
 //    public interface MovieRepository extends MongoRepository<Movie, Long> {

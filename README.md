@@ -37,10 +37,10 @@ Start service with `-Dredis=true`:
 
 Thanks to Spring HATEOAS, the service provides easy access to the state:
 
-Rating API available at `localhost:8080/ratings{?page,size,sort}`
+Rating API will be available at `localhost:8080/ratings{?page,size,sort}`
 
-Movie API available at `localhost:8080/movies{?page,size,sort}`
+Movie API will be available at `localhost:8080/movies{?page,size,sort}`
 
-Movie search API reference available at `localhost:8080/movies/search`
+Movie search API reference will be available at `localhost:8080/movies/search`
 
-Rating search API reference available at `localhost:8080/ratings/search`
+Rating search API reference will be available at `localhost:8080/ratings/search`
