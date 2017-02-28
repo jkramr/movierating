@@ -38,7 +38,6 @@ class SampleInputDataCLR implements CommandLineRunner {
                     movieRatingService.register(movie);
                 });
 
-        // publish sample data slice
         movieRatingService.publishApiDoc();
 
         movieRatingService.publishMoviesRatings(movieRatingService::publishToStdin);
