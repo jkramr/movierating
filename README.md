@@ -11,8 +11,11 @@ RESTful microservice, powered by Spring Boot, one-button bootstrap, can benefit 
 ##Available options:
 
 `-Dserver.port` - port for this application
+
 `-Dpath` - path to file with input data
+
 `-DskipRanks` - toggle on or off skipping rank when rating is equal
+
 `-Dredis` - use Redis for rating service, needs Redis running locally on 6379
 
 ##To enable Redis:
