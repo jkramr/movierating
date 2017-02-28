@@ -31,3 +31,16 @@ b) Install Docker with Compose and run:
 Start service with `-Dredis=true`:
 
 `./gradlew bootRun -Dredis=true`
+
+
+##RESTful API:
+
+Thanks to Spring HATEOAS, the service provides easy access to the state:
+
+Rating API available at `localhost:8080/ratings{?page,size,sort}`
+
+Movie API available at `localhost:8080/movies{?page,size,sort}`
+
+Movie search API reference available at `localhost:8080/movies/search`
+
+Rating search API reference available at `localhost:8080/ratings/search`
