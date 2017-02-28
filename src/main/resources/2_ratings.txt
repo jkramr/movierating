@@ -1,0 +1,125 @@
+1966	8.9	Il buono, il brutto, il cattivo
+1971	8.3	A Clockwork Orange
+1972	9.2	The Godfather
+1974	9.0	The Godfather: Part II
+1975	8.7	One Flew Over the Cuckoo's Nest
+1976	8.3	Taxi Driver
+1977	8.7	Star Wars
+1979	8.5	Alien
+1980	8.4	The Shining
+1980	8.8	Star Wars: Episode V - The Empire Strikes Back
+1981	8.5	Raiders of the Lost Ark
+1983	8.3	Scarface
+1983	8.4	Star Wars: Episode VI - Return of the Jedi
+1984	8.0	The Terminator
+1985	8.5	Back to the Future
+1986	8.4	Aliens
+1988	8.2	Die Hard
+1989	8.3	Indiana Jones and the Last Crusade
+1990	8.7	Goodfellas
+1991	8.5	Terminator 2: Judgment Day
+1991	8.6	The Silence of the Lambs
+1992	8.4	Reservoir Dogs
+1993	8.1	Jurassic Park
+1993	8.9	Schindler's List
+1994	8.5	The Lion King
+1994	8.8	Forrest Gump
+1994	8.9	Pulp Fiction
+1994	9.0	"Friends"
+1994	9.3	The Shawshank Redemption
+1995	8.3	Toy Story
+1995	8.4	Braveheart
+1995	8.6	Se7en
+1995	8.6	The Usual Suspects
+1997	7.7	Titanic
+1997	8.3	Good Will Hunting
+1998	8.1	The Truman Show
+1998	8.2	The Big Lebowski
+1998	8.6	American History X
+1998	8.6	Saving Private Ryan
+1999	6.5	Star Wars: Episode I - The Phantom Menace
+1999	8.1	The Sixth Sense
+1999	8.4	American Beauty
+1999	8.5	The Green Mile
+1999	8.7	The Matrix
+1999	8.8	Fight Club
+2000	8.3	Snatch
+2000	8.4	Requiem for a Dream
+2000	8.5	Gladiator
+2000	8.5	Memento
+2001	8.1	Donnie Darko
+2001	8.1	Monsters, Inc.
+2001	8.2	A Beautiful Mind
+2001	8.8	The Lord of the Rings: The Fellowship of the Ring
+2002	7.3	Spider-Man
+2002	8.0	Catch Me If You Can
+2002	8.5	The Pianist
+2002	8.7	Cidade de Deus
+2002	8.7	The Lord of the Rings: The Two Towers
+2003	8.0	Pirates of the Caribbean: The Curse of the Black Pearl
+2003	8.1	Kill Bill: Vol. 1
+2003	8.2	Finding Nemo
+2003	8.9	The Lord of the Rings: The Return of the King
+2004	8.0	Kill Bill: Vol. 2
+2004	8.3	Eternal Sunshine of the Spotless Mind
+2005	7.6	Star Wars: Episode III - Revenge of the Sith
+2005	8.0	Sin City
+2005	8.2	V for Vendetta
+2005	8.3	Batman Begins
+2006	7.3	Pirates of the Caribbean: Dead Man's Chest
+2006	7.7	300
+2006	8.5	The Departed
+2006	8.5	The Prestige
+2006	8.8	"Dexter"
+2007	7.1	Transformers
+2007	7.2	I Am Legend
+2007	8.1	No Country for Old Men
+2007	8.1	The Bourne Ultimatum
+2007	8.4	"The Big Bang Theory"
+2008	7.9	Iron Man
+2008	8.0	Slumdog Millionaire
+2008	8.2	Gran Torino
+2008	9.0	The Dark Knight
+2008	9.5	"Breaking Bad"
+2009	7.8	The Hangover
+2009	7.9	Avatar
+2009	8.0	District 9
+2009	8.0	Star Trek
+2009	8.3	Inglourious Basterds
+2009	8.3	Up
+2010	7.0	Iron Man 2
+2010	8.0	Black Swan
+2010	8.0	The King's Speech
+2010	8.1	Shutter Island
+2010	8.2	How to Train Your Dragon
+2010	8.3	Toy Story 3
+2010	8.6	"The Walking Dead"
+2010	8.8	Inception
+2010	9.2	"Sherlock"
+2011	6.9	Captain America: The First Avenger
+2011	7.0	Thor
+2011	7.8	X: First Class
+2011	8.1	Harry Potter and the Deathly Hallows: Part 2
+2011	8.6	Intouchables
+2011	9.5	"Game of Thrones"
+2012	7.3	The Hunger Games
+2012	7.8	Silver Linings Playbook
+2012	7.8	Skyfall
+2012	7.9	The Hobbit: An Unexpected Journey
+2012	8.1	The Avengers
+2012	8.4	Django Unchained
+2012	8.5	The Dark Knight Rises
+2013	7.1	Man of Steel
+2013	7.2	Iron Man Three
+2013	7.6	The Hunger Games: Catching Fire
+2013	7.8	Gravity
+2013	8.2	The Wolf of Wall Street
+2014	7.8	Captain America: The Winter Soldier
+2014	8.0	X-Men: Days of Future Past
+2014	8.1	Gone Girl
+2014	8.1	Guardians of the Galaxy
+2014	8.6	Interstellar
+2015	8.0	The Martian
+2015	8.1	Mad Max: Fury Road
+2015	8.2	Star Wars: Episode VII - The Force Awakens
+2016	8.1	Deadpool
