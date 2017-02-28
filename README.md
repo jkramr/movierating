@@ -45,6 +45,6 @@ Current rankings available at `http://localhost:8080/movies/rankings`
 
 ##Bonus: 
 
-Spring Rest Repositories also support updating/inserting entities via rest:
+Spring Rest Repositories also support updating/inserting entities via REST:
 
 `$ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies`
