@@ -47,4 +47,4 @@ Current rankings available at `http://localhost:8080/movies/rankings`
 
 Spring Rest Repositories also support updating/inserting entities via rest:
 
-$ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies
+`$ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies`
