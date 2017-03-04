@@ -57,7 +57,7 @@ public class MovieRankingService {
 
     public List<String> publishMoviesRatings(BiFunction<Long, Long, String> recordPublisher, Integer nullableLimit) {
         return Optional.ofNullable(nullableLimit)
-                .map(limit -> publish(recordPublisher, rankRepository.findRange(0, limit - 1)))
+                .map(limit -> publish(recordPublisher, rankRepository.findRange(limit)))
                 .orElseGet(() -> publishMoviesRatings(recordPublisher));
     }
 

@@ -49,12 +49,11 @@ public class InMemoryJavaRankRepository implements RankRepository {
     }
 
     @Override
-    public Map<Long, Integer> findRange(long start, long end) {
+    public Map<Long, Integer> findRange(long limit) {
         return ratings.keySet()
                 .stream()
                 .flatMap(key -> ratings.get(key).stream().map(id -> Pair.of(id, key)))
-                .skip(start)
-                .limit(end - start + 1)
+                .limit(limit)
                 .collect(Collectors.toMap(
                         Pair::getFirst,
                         Pair::getSecond,
@@ -67,4 +66,5 @@ public class InMemoryJavaRankRepository implements RankRepository {
     public void remove(Long id, Integer rating) {
         ratings.get(rating).remove(id);
     }
+
 }
