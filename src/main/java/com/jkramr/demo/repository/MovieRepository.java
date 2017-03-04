@@ -10,15 +10,13 @@ import java.util.Collection;
 /**
  * Entries:
  * http://localhost:8080/movies{?page,size,sort}
- *
+ * <p>
  * Search API reference:
  * http://localhost:8080/movies/search
- *
+ * <p>
  * Spring boot allows updating/inserting entities with POST requests:
-
- $ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies
-
- *
+ * <p>
+ * $ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies
  */
 @RepositoryRestResource
 public interface MovieRepository extends JpaRepository<Movie, Long> {

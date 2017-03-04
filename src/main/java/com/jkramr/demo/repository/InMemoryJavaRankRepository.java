@@ -1,5 +1,7 @@
 package com.jkramr.demo.repository;
 
+import org.springframework.data.util.Pair;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -7,16 +9,16 @@ public class InMemoryJavaRankRepository implements RankRepository {
 
     /**
      * Map ratings -> corresponding set of movie ids
-     *
+     * <p>
      * Stub implementation using in-memory ranking storage (red-black tree, sorted by score)
      * Will die when memory runs out, not persistent, use Redis!
-     *
+     * <p>
      * Complexity
-     *
+     * <p>
      * Time:
      * Insertion: O(log(n))
      * Search: O(log(n)) normally, but more -> O(n) with growing rating collisions
-     *
+     * <p>
      * Space: O(n)
      */
     private TreeMap<Integer, Set<Long>> ratings;
@@ -30,38 +32,27 @@ public class InMemoryJavaRankRepository implements RankRepository {
         ratings.putIfAbsent(rating, new TreeSet<>());
         ratings.get(rating).add(id);
 
-        return rank(id, rating);
+        return id;
     }
 
     @Override
-    public Long rank(Long id, Integer rating) {
-        long counter = 0;
-
-        for (Integer score : ratings.keySet()) {
-            if (Objects.equals(score, rating)) {
-                return counter;
-            }
-            counter++;
-        }
-
-        return counter;
+    public Map<Long, Integer> findAll() {
+        return findRange(0, ratings.size() - 1);
     }
 
     @Override
-    public Collection<Long> findAll() {
+    public Map<Long, Integer> findRange(long start, long end) {
         return ratings.keySet()
                 .stream()
-                .flatMap(key -> ratings.get(key).stream())
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public Collection<Long> findFirst(long limit) {
-        return ratings.keySet()
-                .stream()
-                .flatMap(key -> ratings.get(key).stream())
-                .limit(limit)
-                .collect(Collectors.toList());
+                .flatMap(key -> ratings.get(key).stream().map(id -> Pair.of(id, key)))
+                .skip(start)
+                .limit(end - start + 1)
+                .collect(Collectors.toMap(
+                        Pair::getFirst,
+                        Pair::getSecond,
+                        degradeDuplicates,
+                        LinkedHashMap::new
+                ));
     }
 
     @Override

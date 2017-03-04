@@ -7,14 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.event.AbstractRepositoryEventListener;
 import org.springframework.stereotype.Component;
 
+/**
+ * Enables updating rankings table when adding/removing a movie
+ */
 @Component
-public class AddMovieListener extends AbstractRepositoryEventListener<Movie> {
+public class MovieRankSyncListener extends AbstractRepositoryEventListener<Movie> {
 
     private RankRepository rankRepository;
     private MovieRepository movieRepository;
 
     @Autowired
-    public AddMovieListener(
+    public MovieRankSyncListener(
             RankRepository rankRepository,
             MovieRepository movieRepository
     ) {

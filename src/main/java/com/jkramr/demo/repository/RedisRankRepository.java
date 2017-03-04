@@ -3,7 +3,10 @@ package com.jkramr.demo.repository;
 import lombok.Getter;
 import org.springframework.data.redis.core.BoundZSetOperations;
 
-import java.util.Collection;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static org.springframework.data.redis.core.ZSetOperations.*;
 
 @Getter
 public class RedisRankRepository implements RankRepository {
@@ -11,7 +14,6 @@ public class RedisRankRepository implements RankRepository {
     /**
      * Z-set stores key-values along with the score.
      * Specifically useful for leaderboards, rankings etc.
-     * Easy access to records
      */
     private final BoundZSetOperations<String, Long> ratingOperations;
 
@@ -23,22 +25,24 @@ public class RedisRankRepository implements RankRepository {
     public Long put(Long id, Integer rating) {
         ratingOperations.add(id, rating);
 
-        return rank(id, rating);
+        return id;
     }
 
     @Override
-    public Long rank(Long id, Integer rating) {
-        return ratingOperations.rank(id);
+    public Map<Long, Integer> findAll() {
+        return findRange(0, ratingOperations.size() - 1);
     }
 
     @Override
-    public Collection<Long> findAll() {
-        return findFirst(ratingOperations.size());
-    }
-
-    @Override
-    public Collection<Long> findFirst(long limit) {
-        return ratingOperations.reverseRange(0, limit);
+    public Map<Long, Integer> findRange(long start, long end) {
+        return ratingOperations.reverseRangeWithScores(start, end)
+                .stream()
+                .collect(Collectors.toMap(
+                        TypedTuple::getValue,
+                        typedTuple -> typedTuple.getScore().intValue(),
+                        degradeDuplicates,
+                        LinkedHashMap::new
+                ));
     }
 
     @Override

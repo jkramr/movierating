@@ -1,7 +1,7 @@
 package com.jkramr.demo;
 
 import com.jkramr.demo.model.Movie;
-import com.jkramr.demo.service.MovieRatingService;
+import com.jkramr.demo.service.MovieRankingService;
 import com.jkramr.demo.util.SimpleFileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,16 +14,16 @@ import java.util.Arrays;
 @Component
 class SampleInputDataCLR implements CommandLineRunner {
 
-    private MovieRatingService movieRatingService;
+    private MovieRankingService movieRankingService;
 
     @Value("${path:null}")
     private String filePath;
 
     @Autowired
     SampleInputDataCLR(
-            MovieRatingService movieRatingService
+            MovieRankingService movieRankingService
     ) {
-        this.movieRatingService = movieRatingService;
+        this.movieRankingService = movieRankingService;
     }
 
     @Override
@@ -35,12 +35,12 @@ class SampleInputDataCLR implements CommandLineRunner {
                 .forEach(movieEntry -> {
                     Movie movie = parseMovieFromString(movieEntry);
 
-                    movieRatingService.register(movie);
+                    movieRankingService.register(movie);
                 });
 
-        movieRatingService.publishApiDoc();
+        movieRankingService.publishApiDoc();
 
-        movieRatingService.publishMoviesRatings(movieRatingService::publishToStdin);
+        movieRankingService.publishMoviesRatings(movieRankingService::publishToStdin);
     }
 
     private Movie parseMovieFromString(String movieEntry) {
