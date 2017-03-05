@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-import java.util.Optional;
 
 @RestController
 public class RankingsController {
@@ -21,10 +20,10 @@ public class RankingsController {
     }
 
     /**
-     * Servlet listener to display current rankings
+     * Servlet listener to display current rankings top
      */
     @RequestMapping(value = "movies/rankings", method = RequestMethod.GET)
-    public Collection<String> rankings(@RequestParam(required = false) Integer limit) {
-        return movieRankingService.publishMoviesRatings(movieRankingService::publishToStdin, limit);
+    public Collection<String> top(@RequestParam(required = false) Integer top) {
+        return movieRankingService.publishTopRankings(movieRankingService::publishToStdin, top);
     }
 }

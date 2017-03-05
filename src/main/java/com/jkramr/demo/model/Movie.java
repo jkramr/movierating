@@ -15,6 +15,7 @@ import javax.persistence.Id;
 @RequiredArgsConstructor
 public class Movie {
 
+    public static final Movie EMPTY = new Movie(-1, -1, "Degraded gracefully");
     @Id
     @GeneratedValue
     private Long id;

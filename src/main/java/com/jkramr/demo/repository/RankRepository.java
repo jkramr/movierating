@@ -1,7 +1,5 @@
 package com.jkramr.demo.repository;
 
-import org.springframework.data.util.Pair;
-
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
@@ -14,8 +12,9 @@ public interface RankRepository {
 
     Map<Long, Integer> findAll();
 
-    Map<Long, Integer> findRange(long limit);
+    Map<Long, Integer> findRange(long start, long end);
 
     void remove(Long id, Integer rating);
 
+    boolean isEmpty();
 }

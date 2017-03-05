@@ -30,12 +30,12 @@ public class RedisRankRepository implements RankRepository {
 
     @Override
     public Map<Long, Integer> findAll() {
-        return findRange(ratingOperations.size());
+        return findRange(0, ratingOperations.size());
     }
 
     @Override
-    public Map<Long, Integer> findRange(long limit) {
-        return ratingOperations.reverseRangeWithScores(0, limit - 1)
+    public Map<Long, Integer> findRange(long start, long end) {
+        return ratingOperations.reverseRangeWithScores(start, end)
                 .stream()
                 .collect(Collectors.toMap(
                         TypedTuple::getValue,
@@ -48,5 +48,10 @@ public class RedisRankRepository implements RankRepository {
     @Override
     public void remove(Long id, Integer rating) {
         ratingOperations.remove(id);
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return ratingOperations.size() == 0;
     }
 }

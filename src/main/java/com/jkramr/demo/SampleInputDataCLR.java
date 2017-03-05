@@ -40,7 +40,7 @@ class SampleInputDataCLR implements CommandLineRunner {
 
         movieRankingService.publishApiDoc();
 
-        movieRankingService.publishMoviesRatings(movieRankingService::publishToStdin);
+        movieRankingService.publishTopRankings(movieRankingService::publishToStdin);
     }
 
     private Movie parseMovieFromString(String movieEntry) {
