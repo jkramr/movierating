@@ -10,8 +10,6 @@ public interface RankRepository {
 
     Long put(Long id, Integer rating);
 
-    Map<Long, Integer> findAll();
-
     Map<Long, Integer> findRange(long start, long end);
 
     void remove(Long id, Integer rating);

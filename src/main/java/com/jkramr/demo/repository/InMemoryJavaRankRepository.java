@@ -36,25 +36,14 @@ public class InMemoryJavaRankRepository implements RankRepository {
     }
 
     @Override
-    public Map<Long, Integer> findAll() {
-        return ratings.keySet()
-                .stream()
-                .flatMap(key -> ratings.get(key).stream().map(id -> Pair.of(id, key)))
-                .collect(Collectors.toMap(
-                        Pair::getFirst,
-                        Pair::getSecond,
-                        degradeDuplicates,
-                        LinkedHashMap::new
-                ));
-    }
-
-    @Override
     public Map<Long, Integer> findRange(long start, long end) {
+        long maxSize = end - start + 1;
+
         return ratings.keySet()
                 .stream()
                 .flatMap(key -> ratings.get(key).stream().map(id -> Pair.of(id, key)))
                 .skip(start)
-                .limit(end - start + 1)
+                .limit(maxSize)
                 .collect(Collectors.toMap(
                         Pair::getFirst,
                         Pair::getSecond,

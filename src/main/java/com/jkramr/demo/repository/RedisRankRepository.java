@@ -29,11 +29,6 @@ public class RedisRankRepository implements RankRepository {
     }
 
     @Override
-    public Map<Long, Integer> findAll() {
-        return findRange(0, ratingOperations.size());
-    }
-
-    @Override
     public Map<Long, Integer> findRange(long start, long end) {
         return ratingOperations.reverseRangeWithScores(start, end)
                 .stream()

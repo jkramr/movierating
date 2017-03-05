@@ -8,11 +8,11 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.Collection;
 
 /**
- * Entries:
- * http://localhost:8080/movies{?page,size,sort}
+ * This RESTful repository provides access to it's entries:
  * <p>
- * Search API reference:
- * http://localhost:8080/movies/search
+ * <a href=http://localhost:8080/movies>Movie API</a> parameters: {?page,size,sort}
+ * <p>
+ * <a href=http://localhost:8080/movies/search>Movie Search API reference</a>
  * <p>
  * Spring boot allows updating/inserting entities with POST requests:
  * <p>
@@ -20,6 +20,9 @@ import java.util.Collection;
  */
 @RepositoryRestResource
 public interface MovieRepository extends JpaRepository<Movie, Long> {
+    // easy switch between DBs:
+//    public interface MovieRepository extends MongoRepository<Movie, Long> {
+//    public interface MovieRepository extends Neo4jRepository<Movie, Long> {
 
     Collection<Movie> findByMovieTitle(@Param("title") String title);
 
@@ -27,7 +30,5 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     Collection<Movie> findByYear(@Param("year") Integer year);
 
-    // easy switch between DBs:
-//    public interface MovieRepository extends MongoRepository<Movie, Long> {
-//    public interface MovieRepository extends Neo4jRepository<Movie, Long> {
+
 }
