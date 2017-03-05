@@ -16,7 +16,7 @@ import java.util.Collection;
  * <p>
  * Spring boot allows updating/inserting entities with POST requests:
  * <p>
- * $ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies
+ * <code>$ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies</code>
  */
 @RepositoryRestResource
 public interface MovieRepository extends JpaRepository<Movie, Long> {

@@ -116,11 +116,9 @@ public class MovieRankingService {
 
     public void publishApiDoc() {
         System.out.println();
-        System.out.println("SUCCESS.");
+        System.out.println("Movie API available at localhost:8080/movies{?page,size,sort}");
         System.out.println();
-        System.out.println("Movie list available at localhost:8080/movies{?page,size,sort}");
-        System.out.println();
-        System.out.println("Movie search available at localhost:8080/movies/search");
+        System.out.println("Movie search API reference available at localhost:8080/movies/search");
         System.out.println();
     }
 }
