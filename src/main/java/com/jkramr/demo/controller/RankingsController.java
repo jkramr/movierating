@@ -21,6 +21,7 @@ public class RankingsController {
 
     /**
      * Servlet listener to display current rankings top
+     * @param top - max rank until which to display the top
      */
     @RequestMapping(value = "movies/rankings", method = RequestMethod.GET)
     public Collection<String> top(@RequestParam(required = false) Integer top) {
