@@ -12,19 +12,20 @@ import java.util.Collection;
 @RestController
 public class RankingsController {
 
-    private MovieRankingService movieRankingService;
+  private MovieRankingService movieRankingService;
 
-    @Autowired
-    public RankingsController(MovieRankingService movieRankingService) {
-        this.movieRankingService = movieRankingService;
-    }
+  @Autowired
+  public RankingsController(MovieRankingService movieRankingService) {
+    this.movieRankingService = movieRankingService;
+  }
 
-    /**
-     * Servlet listener to display current rankings top
-     * @param top - max rank until which to display the top
-     */
-    @RequestMapping(value = "movies/rankings", method = RequestMethod.GET)
-    public Collection<String> top(@RequestParam(required = false) Integer top) {
-        return movieRankingService.publishTopRankings(movieRankingService::publishToStdin, top);
-    }
+  /**
+   * Servlet listener to display current rankings top
+   *
+   * @param top - max rank until which to display the top
+   */
+  @RequestMapping(value = "movies/rankings", method = RequestMethod.GET)
+  public Collection<String> top(@RequestParam(required = false) Integer top) {
+    return movieRankingService.publishTopRankings(movieRankingService::publishToStdin, top);
+  }
 }

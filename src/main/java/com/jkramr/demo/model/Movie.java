@@ -15,17 +15,17 @@ import javax.persistence.Id;
 @RequiredArgsConstructor
 public class Movie {
 
-    public static final Movie EMPTY = new Movie(-1, -1, "Degraded gracefully");
-    @Id
-    @GeneratedValue
-    private Long id;
+  public static final Movie EMPTY = new Movie(-1, -1, "Degraded gracefully");
+  @Id
+  @GeneratedValue
+  private Long id;
 
-    @NonNull
-    private Integer year;
+  @NonNull
+  private Integer year;
 
-    @NonNull
-    private Integer rating;
+  @NonNull
+  private Integer rating;
 
-    @NonNull
-    private String movieTitle;
+  @NonNull
+  private String movieTitle;
 }

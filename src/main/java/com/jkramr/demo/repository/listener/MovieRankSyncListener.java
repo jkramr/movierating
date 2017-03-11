@@ -11,41 +11,42 @@ import org.springframework.stereotype.Component;
  * Enables updating rankings table when adding/removing a movie
  */
 @Component
-public class MovieRankSyncListener extends AbstractRepositoryEventListener<Movie> {
+public class MovieRankSyncListener
+        extends AbstractRepositoryEventListener<Movie> {
 
-    private RankRepository rankRepository;
-    private MovieRepository movieRepository;
+  private RankRepository  rankRepository;
+  private MovieRepository movieRepository;
 
-    @Autowired
-    public MovieRankSyncListener(
-            RankRepository rankRepository,
-            MovieRepository movieRepository
-    ) {
-        this.rankRepository = rankRepository;
-        this.movieRepository = movieRepository;
-    }
+  @Autowired
+  public MovieRankSyncListener(
+          RankRepository rankRepository,
+          MovieRepository movieRepository
+  ) {
+    this.rankRepository = rankRepository;
+    this.movieRepository = movieRepository;
+  }
 
-    @Override
-    protected void onAfterCreate(Movie entity) {
+  @Override
+  protected void onAfterCreate(Movie entity) {
 
-        entity = movieRepository.save(entity);
-        rankRepository.put(entity.getId(), entity.getRating());
+    entity = movieRepository.save(entity);
+    rankRepository.put(entity.getId(), entity.getRating());
 
-        super.onAfterCreate(entity);
-    }
+    super.onAfterCreate(entity);
+  }
 
-    @Override
-    protected void onAfterSave(Movie entity) {
-        entity = movieRepository.save(entity);
-        rankRepository.put(entity.getId(), entity.getRating());
+  @Override
+  protected void onAfterSave(Movie entity) {
+    entity = movieRepository.save(entity);
+    rankRepository.put(entity.getId(), entity.getRating());
 
-        super.onAfterSave(entity);
-    }
+    super.onAfterSave(entity);
+  }
 
-    @Override
-    protected void onAfterDelete(Movie entity) {
-        rankRepository.remove(entity.getId(), entity.getRating());
+  @Override
+  protected void onAfterDelete(Movie entity) {
+    rankRepository.remove(entity.getId(), entity.getRating());
 
-        super.onAfterDelete(entity);
-    }
+    super.onAfterDelete(entity);
+  }
 }

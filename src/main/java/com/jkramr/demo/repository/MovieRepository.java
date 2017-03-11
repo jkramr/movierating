@@ -19,16 +19,17 @@ import java.util.Collection;
  * <code>$ curl -X POST -i -H "Content-Type:application/json" -d '{"year":"1989", "rating":"100", "title":"Westworld"}' http://localhost:8080/movies</code>
  */
 @RepositoryRestResource
-public interface MovieRepository extends JpaRepository<Movie, Long> {
-    // easy switch between DBs:
+public interface MovieRepository
+        extends JpaRepository<Movie, Long> {
+  // easy switch between DBs:
 //    public interface MovieRepository extends MongoRepository<Movie, Long> {
 //    public interface MovieRepository extends Neo4jRepository<Movie, Long> {
 
-    Collection<Movie> findByMovieTitle(@Param("title") String title);
+  Collection<Movie> findByMovieTitle(@Param("title") String title);
 
-    Collection<Movie> findByRating(@Param("rating") Integer rating);
+  Collection<Movie> findByRating(@Param("rating") Integer rating);
 
-    Collection<Movie> findByYear(@Param("year") Integer year);
+  Collection<Movie> findByYear(@Param("year") Integer year);
 
 
 }

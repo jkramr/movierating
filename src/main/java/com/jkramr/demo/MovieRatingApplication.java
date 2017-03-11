@@ -15,34 +15,34 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @SpringBootApplication
 public class MovieRatingApplication {
 
-    /**
-     * Enables Redis-driven rating calculation
-     * 12-step reconfigurable property (code default -> application.properties -> environment variable etc.)
-     */
-    @Value("${redis:false}")
-    Boolean redis;
+  /**
+   * Enables Redis-driven rating calculation
+   * 12-step reconfigurable property (code default -> application.properties -> environment variable etc.)
+   */
+  @Value("${redis:false}")
+  Boolean redis;
 
-    @Bean
-    RedisTemplate<String, Long> redisTemplate(JedisConnectionFactory jedisConnectionFactory) {
-        RedisTemplate<String, Long> redisTemplate = new RedisTemplate<>();
+  public static void main(String[] args) {
+    SpringApplication.run(MovieRatingApplication.class, args);
+  }
 
-        redisTemplate.setConnectionFactory(jedisConnectionFactory);
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new GenericToStringSerializer<>(Long.class));
-        redisTemplate.afterPropertiesSet();
+  @Bean
+  RedisTemplate<String, Long> redisTemplate(JedisConnectionFactory jedisConnectionFactory) {
+    RedisTemplate<String, Long> redisTemplate = new RedisTemplate<>();
 
-        return redisTemplate;
-    }
+    redisTemplate.setConnectionFactory(jedisConnectionFactory);
+    redisTemplate.setKeySerializer(new StringRedisSerializer());
+    redisTemplate.setValueSerializer(new GenericToStringSerializer<>(Long.class));
+    redisTemplate.afterPropertiesSet();
 
-    @Bean
-    RankRepository rankRepository(RedisTemplate<String, Long> redisTemplate) {
-        return redis
-                ? new RedisRankRepository(redisTemplate.boundZSetOps("movie_rating"))
-                : new InMemoryJavaRankRepository();
-    }
+    return redisTemplate;
+  }
 
-    public static void main(String[] args) {
-        SpringApplication.run(MovieRatingApplication.class, args);
-    }
+  @Bean
+  RankRepository rankRepository(RedisTemplate<String, Long> redisTemplate) {
+    return redis
+           ? new RedisRankRepository(redisTemplate.boundZSetOps("movie_rating"))
+           : new InMemoryJavaRankRepository();
+  }
 }
 

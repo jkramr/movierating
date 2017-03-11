@@ -7,6 +7,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MovieRankRecord {
 
-    private final Movie movie;
-    private final Long rank;
+  private final Movie movie;
+  private final Long  rank;
 }
